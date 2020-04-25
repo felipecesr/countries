@@ -23,6 +23,14 @@ const Home = () => {
     setSearchResults(results);
   }, [searchTerm, countries]);
 
+  const handleSelect = (event) => {
+    const filter = event.target.textContent.toLowerCase();
+    const results = countries.filter((country) =>
+      country.region.toLowerCase().includes(filter)
+    );
+    setSearchResults(results);
+  };
+
   return (
     <Layout>
       <Head>
@@ -33,7 +41,7 @@ const Home = () => {
       <main>
         <S.MenuWrapper>
           <S.MenuSearch value={searchTerm} onChange={handleChange} />
-          <S.MenuDropdown items={['America', 'Africa']} />
+          <S.MenuDropdown onSelect={handleSelect} />
         </S.MenuWrapper>
         <List countries={searchResults} />
       </main>

@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import * as S from './styled';
 
-const Dropdown = ({ className, activatorText, items }) => {
+const Dropdown = ({ className, activatorText, items, onSelect }) => {
   const activatorRef = useRef(null);
   const dropdownListRef = useRef(null);
   const [isOpen, setIsOpen] = useState(false);
@@ -13,6 +13,7 @@ const Dropdown = ({ className, activatorText, items }) => {
   const handleKey = (event) => {
     if (event.keyCode === 27 && isOpen) {
       setIsOpen(false);
+      activatorRef.current.focus();
     }
   };
 
@@ -57,7 +58,12 @@ const Dropdown = ({ className, activatorText, items }) => {
       >
         {items.map((item, index) => (
           <S.DropdownMenuItem key={index}>
-            <a href="#" className="dropdown-menu__item" role="menuitem">
+            <a
+              href="#"
+              className="dropdown-menu__item"
+              role="menuitem"
+              onClick={onSelect}
+            >
               {item}
             </a>
           </S.DropdownMenuItem>
@@ -69,7 +75,7 @@ const Dropdown = ({ className, activatorText, items }) => {
 
 Dropdown.defaultProps = {
   activatorText: 'Filter by Region',
-  items: [],
+  items: ['Africa', 'Americas', 'Asia', 'Europe', 'Oceania'],
 };
 
 export default Dropdown;
