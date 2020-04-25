@@ -2,13 +2,10 @@ import React, { useState, useEffect } from 'react';
 import Head from 'next/head';
 import * as S from './styled';
 
-import { useApiCountries } from '../../hooks/api';
-
 import Layout from '../../components/Layout';
 import List from '../../components/List';
 
-const Home = () => {
-  const countries = useApiCountries();
+const Home = ({ countries }) => {
   const [searchTerm, setSearchTerm] = useState('');
   const [searchResults, setSearchResults] = useState([]);
 
@@ -21,7 +18,7 @@ const Home = () => {
       country.name.toLowerCase().includes(searchTerm)
     );
     setSearchResults(results);
-  }, [searchTerm, countries]);
+  }, [searchTerm]);
 
   const handleSelect = (event) => {
     const filter = event.target.textContent.toLowerCase();
