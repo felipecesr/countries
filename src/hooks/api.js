@@ -6,7 +6,7 @@ export function useApiCountries() {
   useEffect(() => {
     const fetchCountries = async () => {
       const response = await window.fetch(
-        'https://restcountries.eu/rest/v2/region/africa?fields=alpha2Code;flag;name;population;region;capital'
+        'https://restcountries.eu/rest/v2/all?fields=alpha2Code;flag;name;population;region;capital'
       );
       const countries = await response.json();
 

@@ -1,21 +1,7 @@
 import Head from 'next/head';
 
-import Layout from '../components/Layout';
-import Menu from '../components/Menu';
-import List from '../components/List';
+import Home from '../templates/Home';
 
-export default function Home() {
-  return (
-    <Layout>
-      <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+const HomePage = () => <Home />;
 
-      <main>
-        <Menu />
-        <List />
-      </main>
-    </Layout>
-  );
-}
+export default HomePage;

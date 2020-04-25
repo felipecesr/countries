@@ -4,7 +4,7 @@ import * as S from './styled';
 const Panel = ({ flag, name, population, region, capital }) => (
   <S.PanelWrapper>
     <S.PanelHead>
-      <img src={flag} alt={name} />
+      <img src={flag} loading="lazy" alt={name} />
     </S.PanelHead>
     <S.PanelContent>
       <p>{name}</p>

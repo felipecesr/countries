@@ -29,7 +29,7 @@ export const DropdownButtonIcon = styled(AngleDown)`
 `;
 
 export const DropdownMenu = styled.ul`
-  display: none;
+  display: ${({ isOpen }) => (isOpen ? 'block' : 'none')};
   background-color: var(--color-elements);
   border-radius: 5px;
   list-style: none;

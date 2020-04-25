@@ -2,8 +2,8 @@ import styled from 'styled-components';
 import media from 'styled-media-query';
 import { spacing } from '../../styles/tokens';
 
-import Search from './Search';
-import Dropdown from './Dropdown';
+import Search from '../../components/Search';
+import Dropdown from '../../components/Dropdown';
 
 export const MenuWrapper = styled.div`
   ${media.greaterThan('medium')`

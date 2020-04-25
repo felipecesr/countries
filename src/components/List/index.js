@@ -1,12 +1,9 @@
 import React from 'react';
-import { useApiCountries } from '../../hooks/api';
 import * as S from './styled';
 
 import Panel from './Panel';
 
-const List = () => {
-  const countries = useApiCountries();
-
+const List = ({ countries }) => {
   if (!countries.length) {
     return 'Loading...';
   }
@@ -27,6 +24,10 @@ const List = () => {
       )}
     </S.ListWrapper>
   );
+};
+
+List.defaultProps = {
+  countries: [],
 };
 
 export default List;
