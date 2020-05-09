@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { Moon } from 'styled-icons/fa-solid';
 
 export const ButtonThemeWrapper = styled.button`
   background: none;
@@ -10,7 +9,7 @@ export const ButtonThemeWrapper = styled.button`
   font-weight: 600;
 `;
 
-export const ButtonThemeIcon = styled(Moon)`
+export const ButtonThemeIcon = styled.svg`
   display: inline-block;
   margin-right: 8px;
   height: 12px;

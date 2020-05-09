@@ -108,7 +108,7 @@ const GlobalStyles = createGlobalStyle`
     --color-background: var(--very-light-gray);
     --color-text: var(--black);
 
-    &[data-user-color-scheme='dark'] {
+    &[data-theme='dark'] {
       --color-elements: var(--dark-blue);
       --color-background: var(--very-dark-blue);
       --color-text: var(--white);
@@ -119,7 +119,7 @@ const GlobalStyles = createGlobalStyle`
     :root {
       --color-mode: 'dark';
 
-      &:not([data-user-color-scheme]) {
+      &:not([data-theme]) {
         --color-elements: var(--dark-blue);
         --color-background: var(--very-dark-blue);
         --color-text: var(--white);
