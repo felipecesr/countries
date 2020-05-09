@@ -4,8 +4,9 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
-    "start": "next start"
+    "build": "next build && next export",
+    "start": "next start",
+    "lint": "eslint src"
   },
   "dependencies": {
     "next": "9.3.5",
@@ -17,6 +18,16 @@
     "styled-media-query": "^2.1.2"
   },
   "devDependencies": {
-    "babel-plugin-styled-components": "^1.10.7"
+    "@typescript-eslint/eslint-plugin": "2.x",
+    "@typescript-eslint/parser": "2.x",
+    "babel-eslint": "10.x",
+    "babel-plugin-styled-components": "^1.10.7",
+    "eslint": "6.x",
+    "eslint-config-react-app": "^5.2.1",
+    "eslint-plugin-flowtype": "4.x",
+    "eslint-plugin-import": "2.x",
+    "eslint-plugin-jsx-a11y": "6.x",
+    "eslint-plugin-react": "7.x",
+    "eslint-plugin-react-hooks": "2.x"
   }
 }
