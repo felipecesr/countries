@@ -1,7 +1,13 @@
 import React from 'react';
 import * as S from './styled';
 
-const Search = ({ className, value, onChange }) => (
+type Props = {
+  className?: string;
+  value: string;
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+};
+
+const Search = ({ className, value, onChange }: Props) => (
   <S.SearchWrapper className={className}>
     <S.SearchIcon />
     <S.SearchInput

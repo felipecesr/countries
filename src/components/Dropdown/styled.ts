@@ -28,7 +28,11 @@ export const DropdownButtonIcon = styled(AngleDown)`
   height: 12px;
 `;
 
-export const DropdownMenu = styled.ul`
+interface DropdownMenuProps {
+  readonly isOpen: boolean;
+}
+
+export const DropdownMenu = styled.ul<DropdownMenuProps>`
   display: ${({ isOpen }) => (isOpen ? 'block' : 'none')};
   background-color: var(--color-elements);
   border-radius: 5px;

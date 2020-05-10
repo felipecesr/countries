@@ -1,11 +1,16 @@
 import React from 'react';
+import { ICountry } from '../../types';
 import * as S from './styled';
 
 import Panel from './Panel';
 
-const List = ({ countries }) => {
+type Props = {
+  countries: ICountry[];
+};
+
+const List = ({ countries }: Props) => {
   if (!countries.length) {
-    return 'Loading...';
+    return <div>Loading...</div>;
   }
 
   return (

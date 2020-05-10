@@ -1,7 +1,15 @@
 import React from 'react';
 import * as S from './styled';
 
-const Panel = ({ flag, name, population, region, capital }) => (
+type Props = {
+  flag: string;
+  name: string;
+  population: string;
+  region: string;
+  capital: string;
+};
+
+const Panel = ({ flag, name, population, region, capital }: Props) => (
   <S.PanelWrapper>
     <a href="/">
       <S.PanelHead>

@@ -3,7 +3,11 @@ import * as S from './styled';
 
 import PageHeader from './PageHeader';
 
-const Layout = ({ children }) => (
+type Props = {
+  children: React.ReactNode;
+};
+
+const Layout = ({ children }: Props) => (
   <>
     <PageHeader />
     <S.LayoutWrapper>{children}</S.LayoutWrapper>

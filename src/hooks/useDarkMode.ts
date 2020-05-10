@@ -1,9 +1,9 @@
 import { useState, useEffect, useCallback } from 'react';
 
-export const useDarkMode = () => {
+export const useDarkMode = (): [string, (event: React.MouseEvent) => void] => {
   const [theme, setTheme] = useState('');
 
-  const getCSSCustomProp = (propKey) => {
+  const getCSSCustomProp = (propKey: string) => {
     let response = getComputedStyle(document.documentElement).getPropertyValue(
       propKey
     );
@@ -15,7 +15,7 @@ export const useDarkMode = () => {
     return response;
   };
 
-  const setMode = (mode) => {
+  const setMode = (mode: string) => {
     window.localStorage.setItem('theme', mode);
     setTheme(mode);
   };
