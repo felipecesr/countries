@@ -21,8 +21,8 @@ const Panel = ({
 }: Props) => (
   <S.PanelWrapper>
     <Link
-      href={`${process.env.ASSET_PREFIX}/[name]`}
-      as={`${process.env.ASSET_PREFIX}/${alpha3Code.toLowerCase()}`}
+      href={`${process.env.NEXT_PUBLIC_ASSET_PREFIX}/[name]`}
+      as={`${process.env.NEXT_PUBLIC_ASSET_PREFIX}/${alpha3Code.toLowerCase()}`}
     >
       {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
       <a>
