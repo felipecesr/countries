@@ -20,7 +20,10 @@ const Panel = ({
   capital,
 }: Props) => (
   <S.PanelWrapper>
-    <Link href="/[name]" as={`/${alpha3Code.toLowerCase()}`}>
+    <Link
+      href={`${process.env.ASSET_PREFIX}/[name]`}
+      as={`/${alpha3Code.toLowerCase()}`}
+    >
       {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
       <a>
         <S.PanelHead>
