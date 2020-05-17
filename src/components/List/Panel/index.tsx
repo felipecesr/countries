@@ -1,7 +1,9 @@
 import React from 'react';
+import Link from 'next/link';
 import * as S from './styled';
 
 type Props = {
+  alpha3Code: string;
   flag: string;
   name: string;
   population: string;
@@ -9,27 +11,37 @@ type Props = {
   capital: string;
 };
 
-const Panel = ({ flag, name, population, region, capital }: Props) => (
+const Panel = ({
+  alpha3Code,
+  flag,
+  name,
+  population,
+  region,
+  capital,
+}: Props) => (
   <S.PanelWrapper>
-    <a href="/">
-      <S.PanelHead>
-        <img src={flag} loading="lazy" alt={name} />
-      </S.PanelHead>
-      <S.PanelContent>
-        <p>{name}</p>
-        <ul>
-          <li>
-            <strong>Population:</strong> {population}
-          </li>
-          <li>
-            <strong>Region:</strong> {region}
-          </li>
-          <li>
-            <strong>Capital:</strong> {capital}
-          </li>
-        </ul>
-      </S.PanelContent>
-    </a>
+    <Link href="/[name]" as={`/${alpha3Code.toLowerCase()}`}>
+      {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
+      <a>
+        <S.PanelHead>
+          <img src={flag} loading="lazy" alt={name} />
+        </S.PanelHead>
+        <S.PanelContent>
+          <p>{name}</p>
+          <ul>
+            <li>
+              <strong>Population:</strong> {population}
+            </li>
+            <li>
+              <strong>Region:</strong> {region}
+            </li>
+            <li>
+              <strong>Capital:</strong> {capital}
+            </li>
+          </ul>
+        </S.PanelContent>
+      </a>
+    </Link>
   </S.PanelWrapper>
 );
 

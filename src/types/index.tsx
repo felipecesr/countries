@@ -1,5 +1,5 @@
 export interface ICountry {
-  alpha2Code?: string;
+  alpha3Code: string;
   flag: string;
   name: string;
   population: string;

@@ -16,9 +16,10 @@ const List = ({ countries }: Props) => {
   return (
     <S.ListWrapper>
       {countries.map(
-        ({ alpha2Code, flag, name, population, region, capital }) => (
+        ({ alpha3Code, flag, name, population, region, capital }) => (
           <Panel
-            key={alpha2Code}
+            key={alpha3Code}
+            alpha3Code={alpha3Code}
             flag={flag}
             name={name}
             population={population}
