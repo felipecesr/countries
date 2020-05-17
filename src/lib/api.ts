@@ -1,3 +1,5 @@
+import fetch from 'node-fetch';
+
 export const getAllCountries = async () => {
   const response = await fetch(
     'https://restcountries.eu/rest/v2/all?fields=alpha3Code;flag;name;population;region;capital'

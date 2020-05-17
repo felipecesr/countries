@@ -9,7 +9,9 @@
     "lint": "eslint 'src/**/*.{js,ts,tsx}' --quiet --fix"
   },
   "dependencies": {
+    "@types/node-fetch": "^2.5.7",
     "next": "^9.4.0",
+    "node-fetch": "^2.6.0",
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "styled-components": "^5.1.0",

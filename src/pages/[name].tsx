@@ -1,5 +1,6 @@
 // @ts-nocheck
 import React from 'react';
+import fetch from 'node-fetch';
 
 import Layout from '../components/Layout';
 
