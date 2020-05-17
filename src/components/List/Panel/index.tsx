@@ -22,7 +22,7 @@ const Panel = ({
   <S.PanelWrapper>
     <Link
       href={`${process.env.ASSET_PREFIX}/[name]`}
-      as={`/${alpha3Code.toLowerCase()}`}
+      as={`${process.env.ASSET_PREFIX}/${alpha3Code.toLowerCase()}`}
     >
       {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
       <a>
