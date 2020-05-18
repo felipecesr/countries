@@ -10,7 +10,9 @@ const PageHeader = () => {
   return (
     <S.PageHeaderWrapper>
       <S.PageHeaderTitle>
-        <a href="/">Where in the world?</a>
+        <a href={`${process.env.NEXT_PUBLIC_ASSET_PREFIX}/`}>
+          Where in the world?
+        </a>
       </S.PageHeaderTitle>
       <Toggle theme={theme} toggleTheme={themeToggler} />
     </S.PageHeaderWrapper>
