@@ -5,8 +5,11 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build && next export",
-    "lint": "eslint 'src /**/*.{js,ts,tsx}' --quiet --fix",
-    "format": "prettier --ignore-path .gitignore --write \"**/*.+(js|ts|tsx)\""
+    "lint": "eslint 'src/**/*.{js,ts,tsx}' --quiet --fix",
+    "prettier": "prettier --ignore-path .gitignore \"**/*.+(js|ts|tsx)\"",
+    "format": "yarn prettier --write",
+    "check-format": "yarn prettier --list-different",
+    "validate": "yarn check-format && yarn lint && yarn build"
   },
   "dependencies": {
     "@types/node-fetch": "^2.5.7",
