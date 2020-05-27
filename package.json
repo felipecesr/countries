@@ -6,10 +6,11 @@
     "dev": "next dev",
     "build": "next build && next export",
     "lint": "eslint 'src/**/*.{js,ts,tsx}' --quiet --fix",
+    "check-types": "tsc",
     "prettier": "prettier --ignore-path .gitignore \"**/*.+(js|ts|tsx)\"",
     "format": "yarn prettier --write",
     "check-format": "yarn prettier --list-different",
-    "validate": "yarn check-format && yarn lint && yarn build"
+    "validate": "yarn check-types && yarn check-format && yarn lint && yarn build"
   },
   "dependencies": {
     "next": "^9.4.2",
@@ -35,12 +36,20 @@
     "eslint-plugin-react": "7.x",
     "eslint-plugin-react-hooks": "2.x",
     "husky": "^4.2.5",
+    "lint-staged": "^10.2.6",
     "prettier": "^2.0.5",
     "typescript": "^3.8.3"
   },
+  "lint-staged": {
+    "*.+(js|ts|tsx)": "eslint",
+    "**/*.+(js|ts|tsx)": [
+      "prettier --write",
+      "git add"
+    ]
+  },
   "husky": {
     "hooks": {
-      "pre-commit": "yarn validate"
+      "pre-commit": "yarn check-types && lint-staged && yarn build"
     }
   }
 }
