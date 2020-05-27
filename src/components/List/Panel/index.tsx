@@ -2,6 +2,8 @@ import React from 'react';
 import Link from 'next/link';
 import * as S from './styled';
 
+import { LazeImage } from '../../LazeImage';
+
 type Props = {
   alpha3Code: string;
   flag: string;
@@ -24,7 +26,7 @@ const Panel = ({
       {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
       <a>
         <S.PanelHead>
-          <img src={flag} loading="lazy" alt={name} />
+          <LazeImage src={flag} alt={name} />
         </S.PanelHead>
         <S.PanelContent>
           <p>{name}</p>
