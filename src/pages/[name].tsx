@@ -1,15 +1,15 @@
-// @ts-nocheck
 import React from 'react';
-import { GetStaticPaths } from 'next';
+import { GetStaticPaths, GetStaticProps } from 'next';
 import { useRouter } from 'next/router';
 
 import Layout from '../components/Layout';
 
-type Props = {
+type Country = {
   name: string;
+  alpha3Code: string;
 };
 
-const CountryPage = ({ name }: Props) => {
+const CountryPage = ({ name }: Country) => {
   const router = useRouter();
 
   if (router.isFallback) {
@@ -29,7 +29,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
   const response = await fetch(
     'https://restcountries.eu/rest/v2/all?fields=alpha3Code'
   );
-  const countries = await response.json();
+  const countries: Country[] = await response.json();
 
   return {
     paths: countries.map((country) => `/${country.alpha3Code.toLowerCase()}`),
@@ -37,13 +37,13 @@ export const getStaticPaths: GetStaticPaths = async () => {
   };
 };
 
-export async function getStaticProps({ params }) {
+export const getStaticProps: GetStaticProps = async ({ params }: any) => {
   const { name } = params;
   const response = await fetch(
     `https://restcountries.eu/rest/v2/alpha/${name}`
   );
-  const props = await response.json();
+  const props: Country[] = await response.json();
   return { props };
-}
+};
 
 export default CountryPage;
