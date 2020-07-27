@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 import * as S from './styled';
 import { useDarkMode } from '../../../hooks/useDarkMode';
 
@@ -10,9 +11,9 @@ const PageHeader = () => {
   return (
     <S.PageHeaderWrapper>
       <S.PageHeaderTitle>
-        <a href={`${process.env.NEXT_PUBLIC_ASSET_PREFIX}/`}>
-          Where in the world?
-        </a>
+        <Link href="/">
+          <a>Where in the world?</a>
+        </Link>
       </S.PageHeaderTitle>
       <Toggle theme={theme} toggleTheme={themeToggler} />
     </S.PageHeaderWrapper>
