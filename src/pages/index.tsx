@@ -5,7 +5,6 @@ import { getAllCountries } from '../lib/api';
 import { ICountry } from '../types';
 import * as S from '../templates/Home/styled';
 
-import Layout from '../components/Layout';
 import List from '../components/List';
 
 type Props = {
@@ -37,7 +36,7 @@ const HomePage = ({ countries }: Props) => {
   };
 
   return (
-    <Layout>
+    <>
       <Head>
         <title>Create Next App</title>
         <link rel="icon" href="/favicon.ico" />
@@ -50,7 +49,7 @@ const HomePage = ({ countries }: Props) => {
         </S.MenuWrapper>
         <List countries={searchResults} />
       </main>
-    </Layout>
+    </>
   );
 };
 

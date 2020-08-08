@@ -9,7 +9,6 @@
     "format": "prettier --ignore-path .gitignore --write \"**/*.+(js|ts|tsx)\""
   },
   "dependencies": {
-    "@types/node-fetch": "^2.5.7",
     "next": "^9.5.0",
     "react": "16.13.1",
     "react-dom": "16.13.1",

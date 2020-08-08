@@ -2,8 +2,6 @@ import React from 'react';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import { useRouter } from 'next/router';
 
-import Layout from '../components/Layout';
-
 type Country = {
   name: string;
   alpha3Code: string;
@@ -17,11 +15,9 @@ const CountryPage = ({ name }: Country) => {
   }
 
   return (
-    <Layout>
-      <main>
-        <h1>{name}</h1>
-      </main>
-    </Layout>
+    <main>
+      <h1>{name}</h1>
+    </main>
   );
 };
 

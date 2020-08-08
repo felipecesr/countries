@@ -39,10 +39,6 @@ class CustomDocument extends Document {
     return (
       <Html lang="en">
         <Head>
-          <meta
-            name="viewport"
-            content="initial-scale=1.0, width=device-width"
-          />
           <meta name="theme-color" content="#fff" />
           <link
             href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;600;800&display=swap"
