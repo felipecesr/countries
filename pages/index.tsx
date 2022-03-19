@@ -7,11 +7,11 @@ import * as S from '../templates/Home/styled';
 
 import List from '../components/List';
 
-type Props = {
+type HomePageProps = {
   countries: ICountry[];
 };
 
-const HomePage = ({ countries }: Props) => {
+const HomePage = ({ countries }: HomePageProps) => {
   const [searchTerm, setSearchTerm] = useState('');
   const [searchResults, setSearchResults] = useState<ICountry[]>([]);
 
@@ -38,7 +38,7 @@ const HomePage = ({ countries }: Props) => {
   return (
     <>
       <Head>
-        <title>Create Next App</title>
+        <title>Countries</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
@@ -53,6 +53,11 @@ const HomePage = ({ countries }: Props) => {
   );
 };
 
-export const getStaticProps: GetStaticProps = async () => getAllCountries();
+export const getStaticProps: GetStaticProps = async () => {
+  const countries = await getAllCountries()
+  return {
+    props: { countries }
+  }
+};
 
 export default HomePage;

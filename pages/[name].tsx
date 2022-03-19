@@ -23,7 +23,7 @@ const CountryPage = ({ name }: Country) => {
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const response = await fetch(
-    'https://restcountries.eu/rest/v2/all?fields=alpha3Code'
+    'https://restcountries.com/v2/all?fields=alpha3Code'
   );
   const countries: Country[] = await response.json();
 
@@ -36,7 +36,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export const getStaticProps: GetStaticProps = async ({ params }: any) => {
   const { name } = params;
   const response = await fetch(
-    `https://restcountries.eu/rest/v2/alpha/${name}`
+    `https://restcountries.com/v2/alpha/${name}`
   );
   const props: Country[] = await response.json();
   return { props };
