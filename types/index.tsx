@@ -43,8 +43,8 @@ export type Country = {
   nativeName: string
   numericCode: string
   flags: Flag
-  currencies: Currency[]
+  currencies?: Currency[]
   flag: string
   languages: Language[]
-  borders: string[]
+  borders?: string[]
 }

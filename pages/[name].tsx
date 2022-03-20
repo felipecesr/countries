@@ -49,16 +49,16 @@ const Single = ({ country }: SingleProps) => {
             <strong>Top Level Domain:</strong>{" "}
             {country.topLevelDomain.join(", ")}
           </li>
-          <li>
+          {!!country?.currencies && <li>
             <strong>Currencies:</strong>{" "}
             {country.currencies.map((c) => c.name).join(", ")}
-          </li>
+          </li>}
           <li>
             <strong>Languages:</strong>{" "}
             {country.languages.map((l) => l.name).join(", ")}
           </li>
         </S.List>
-        <footer>
+        {!!country?.borders && <footer>
           <nav>
             <h3>Border Countries:</h3>
             <ul>
@@ -71,20 +71,19 @@ const Single = ({ country }: SingleProps) => {
               ))}
             </ul>
           </nav>
-        </footer>
+        </footer>}
       </main>
     </>
   );
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const response = await fetch(
+  const countries = await fetch(
     "https://restcountries.com/v2/all?fields=alpha3Code"
-  );
-  const countries: Country[] = await response.json();
+  ).then(res => res.json());
 
   return {
-    paths: countries.map((country) => `/${country.alpha3Code.toLowerCase()}`),
+    paths: countries.map(c => ({ params: { name: c.alpha3Code.toLowerCase() } })),
     fallback: false,
   };
 };
@@ -94,6 +93,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
   const country = await fetch(
     `https://restcountries.com/v2/alpha/${name}`
   ).then((res) => res.json());
+  console.log({country})
   return { props: { country } };
 };
 
