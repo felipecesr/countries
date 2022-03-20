@@ -20,8 +20,7 @@ const Panel = ({
   capital,
 }: Props) => (
   <S.PanelWrapper>
-    <Link href="[name]" as={`${alpha3Code.toLowerCase()}`}>
-      {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
+    <Link href={`/${alpha3Code.toLowerCase()}`}>
       <a>
         <S.PanelHead>
           <img src={flag} loading="lazy" alt={name} />
