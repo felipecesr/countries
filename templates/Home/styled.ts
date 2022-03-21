@@ -10,12 +10,12 @@ export const MenuWrapper = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: ${spacing.xl};
+    margin-bottom: ${spacing[40]};
   `}
 `;
 
 export const MenuSearch = styled(Search)`
-  margin-bottom: ${spacing.xl};
+  margin-bottom: ${spacing[40]};
 
   ${media.greaterThan('medium')`
     margin-bottom: 0;
@@ -23,7 +23,7 @@ export const MenuSearch = styled(Search)`
 `;
 
 export const MenuDropdown = styled(Dropdown)`
-  margin-bottom: ${spacing.lg};
+  margin-bottom: ${spacing[32]};
 
   ${media.greaterThan('medium')`
     margin-bottom: 0;
