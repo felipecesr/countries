@@ -6,7 +6,7 @@ type Props = {
   alpha3Code: string;
   flag: string;
   name: string;
-  population: string;
+  population: number;
   region: string;
   capital: string;
 };

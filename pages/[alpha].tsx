@@ -3,6 +3,7 @@ import { GetStaticPaths, GetStaticProps } from "next";
 import { useRouter } from "next/router";
 import { ArrowLeft } from "styled-icons/fa-solid";
 import { Country } from "../types";
+import { getAllCountries, getCountryByAlphaCode } from "../lib/api";
 import Button from "../components/Button";
 import * as S from "../templates/Single/styled";
 
@@ -49,52 +50,57 @@ const Single = ({ country }: SingleProps) => {
             <strong>Top Level Domain:</strong>{" "}
             {country.topLevelDomain.join(", ")}
           </li>
-          {!!country?.currencies && <li>
-            <strong>Currencies:</strong>{" "}
-            {country.currencies.map((c) => c.name).join(", ")}
-          </li>}
+          {!!country?.currencies && (
+            <li>
+              <strong>Currencies:</strong>{" "}
+              {country.currencies.map((c) => c.name).join(", ")}
+            </li>
+          )}
           <li>
             <strong>Languages:</strong>{" "}
             {country.languages.map((l) => l.name).join(", ")}
           </li>
         </S.List>
-        {!!country?.borders && <footer>
-          <nav>
-            <h3>Border Countries:</h3>
-            <ul>
-              {country.borders.map((b) => (
-                <li key={b}>
-                  <Link href={`/${b.toLowerCase()}`} passHref>
-                    <a>{b}</a>
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </nav>
-        </footer>}
+        {!!country?.borders && (
+          <footer>
+            <nav>
+              <h3>Border Countries:</h3>
+              <ul>
+                {country.borders.map((b) => (
+                  <li key={b}>
+                    <Link href={`/${b.toLowerCase()}`} passHref>
+                      <a>{b}</a>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+          </footer>
+        )}
       </main>
     </>
   );
 };
 
-export const getStaticPaths: GetStaticPaths = async () => {
-  const countries = await fetch(
-    "https://restcountries.com/v2/all?fields=alpha3Code"
-  ).then(res => res.json());
+export default Single;
 
-  return {
-    paths: countries.map(c => ({ params: { name: c.alpha3Code.toLowerCase() } })),
-    fallback: false,
+type Params = {
+  params: {
+    alpha: string;
   };
 };
 
-export const getStaticProps: GetStaticProps = async (context) => {
-  const { name } = context.params;
-  const country = await fetch(
-    `https://restcountries.com/v2/alpha/${name}`
-  ).then((res) => res.json());
-  console.log({country})
+export const getStaticProps: GetStaticProps = async ({ params }: Params) => {
+  const country = await getCountryByAlphaCode(params.alpha);
   return { props: { country } };
 };
 
-export default Single;
+export const getStaticPaths: GetStaticPaths = async () => {
+  const countries = await getAllCountries(["alpha3Code"]);
+  return {
+    paths: countries.map((c) => ({
+      params: { alpha: c.alpha3Code.toLowerCase() },
+    })),
+    fallback: false,
+  };
+};

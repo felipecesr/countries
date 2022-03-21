@@ -1,19 +1,17 @@
-import React, { useState, useEffect } from 'react';
-import Head from 'next/head';
-import { GetStaticProps } from 'next';
-import { getAllCountries } from '../lib/api';
-import { ICountry } from '../types';
-import * as S from '../templates/Home/styled';
+import { useState, useEffect } from "react";
+import { GetStaticProps } from "next";
+import { getAllCountries } from "../lib/api";
+import List from "../components/List";
+import { Country } from "../types";
+import * as S from "../templates/Home/styled";
 
-import List from '../components/List';
-
-type HomePageProps = {
-  countries: ICountry[];
+type IndexProps = {
+  countries: Country[];
 };
 
-const HomePage = ({ countries }: HomePageProps) => {
-  const [searchTerm, setSearchTerm] = useState('');
-  const [searchResults, setSearchResults] = useState<ICountry[]>([]);
+const Index = ({ countries }: IndexProps) => {
+  const [searchTerm, setSearchTerm] = useState("");
+  const [searchResults, setSearchResults] = useState<Country[]>([]);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchTerm(e.target.value);
@@ -30,34 +28,34 @@ const HomePage = ({ countries }: HomePageProps) => {
     const a = e.target as HTMLAnchorElement;
     const filter = a.textContent?.toLowerCase();
     const results = countries.filter((country) =>
-      country.region.toLowerCase().includes(filter || '')
+      country.region.toLowerCase().includes(filter || "")
     );
     setSearchResults(results);
   };
 
   return (
-    <>
-      <Head>
-        <title>Countries</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
-      <main>
-        <S.MenuWrapper>
-          <S.MenuSearch value={searchTerm} onChange={handleChange} />
-          <S.MenuDropdown onSelect={handleSelect} />
-        </S.MenuWrapper>
-        <List countries={searchResults} />
-      </main>
-    </>
+    <main>
+      <S.MenuWrapper>
+        <S.MenuSearch value={searchTerm} onChange={handleChange} />
+        <S.MenuDropdown onSelect={handleSelect} />
+      </S.MenuWrapper>
+      <List countries={searchResults} />
+    </main>
   );
 };
 
-export const getStaticProps: GetStaticProps = async () => {
-  const countries = await getAllCountries()
-  return {
-    props: { countries }
-  }
-};
+export default Index;
 
-export default HomePage;
+export const getStaticProps: GetStaticProps = async () => {
+  const countries = await getAllCountries([
+    "alpha3Code",
+    "flag",
+    "name",
+    "population",
+    "region",
+    "capital",
+  ]);
+  return {
+    props: { countries },
+  };
+};

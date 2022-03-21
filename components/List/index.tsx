@@ -1,11 +1,11 @@
 import React from 'react';
-import { ICountry } from '../../types';
+import { Country } from '../../types';
 import * as S from './styled';
 
 import Panel from './Panel';
 
 type Props = {
-  countries: ICountry[];
+  countries: Country[];
 };
 
 const List = ({ countries }: Props) => {
