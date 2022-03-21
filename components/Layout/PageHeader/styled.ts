@@ -11,6 +11,7 @@ export const PageHeaderWrapper = styled.header`
 `;
 
 export const PageHeaderTitle = styled.h1`
+  color: var(--color-text);
   font-size: 1rem;
   font-weight: 800;
   line-height: 1.6;

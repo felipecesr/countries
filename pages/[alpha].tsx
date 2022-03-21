@@ -21,63 +21,65 @@ const Single = ({ country }: SingleProps) => {
   return (
     <>
       <Button onClick={() => router.back()}>
-        <ArrowLeft height={10} />
+        <ArrowLeft height={14} />
         Back
       </Button>
-      <main>
+      <S.Wrapper>
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <S.Image src={country.flag} alt={country.name} />
-        <S.Title>{country.name}</S.Title>
-        <S.List>
-          <li>
-            <strong>Native Name:</strong> {country.nativeName}
-          </li>
-          <li>
-            <strong>Population:</strong> {country.population}
-          </li>
-          <li>
-            <strong>Region:</strong> {country.region}
-          </li>
-          <li>
-            <strong>Sub Region:</strong> {country.subregion}
-          </li>
-          <li>
-            <strong>Capital:</strong> {country.capital}
-          </li>
-        </S.List>
-        <S.List>
-          <li>
-            <strong>Top Level Domain:</strong>{" "}
-            {country.topLevelDomain.join(", ")}
-          </li>
-          {!!country?.currencies && (
+        <div>
+          <S.Title>{country.name}</S.Title>
+          <S.List>
             <li>
-              <strong>Currencies:</strong>{" "}
-              {country.currencies.map((c) => c.name).join(", ")}
+              <strong>Native Name:</strong> {country.nativeName}
             </li>
-          )}
-          <li>
-            <strong>Languages:</strong>{" "}
-            {country.languages.map((l) => l.name).join(", ")}
-          </li>
-        </S.List>
-        {!!country?.borders && (
-          <footer>
-            <nav>
-              <h3>Border Countries:</h3>
-              <ul>
-                {country.borders.map((b) => (
-                  <li key={b}>
-                    <Link href={`/${b.toLowerCase()}`} passHref>
-                      <a>{b}</a>
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </nav>
-          </footer>
-        )}
-      </main>
+            <li>
+              <strong>Population:</strong> {country.population}
+            </li>
+            <li>
+              <strong>Region:</strong> {country.region}
+            </li>
+            <li>
+              <strong>Sub Region:</strong> {country.subregion}
+            </li>
+            <li>
+              <strong>Capital:</strong> {country.capital}
+            </li>
+          </S.List>
+          <S.List>
+            <li>
+              <strong>Top Level Domain:</strong>{" "}
+              {country.topLevelDomain.join(", ")}
+            </li>
+            {!!country?.currencies && (
+              <li>
+                <strong>Currencies:</strong>{" "}
+                {country.currencies.map((c) => c.name).join(", ")}
+              </li>
+            )}
+            <li>
+              <strong>Languages:</strong>{" "}
+              {country.languages.map((l) => l.name).join(", ")}
+            </li>
+          </S.List>
+          {/* {!!country?.borders && (
+            <footer>
+              <nav>
+                <h3>Border Countries:</h3>
+                <ul>
+                  {country.borders.map((b) => (
+                    <li key={b}>
+                      <Link href={`/${b.toLowerCase()}`} passHref>
+                        <a>{b}</a>
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </nav>
+            </footer>
+          )} */}
+        </div>
+      </S.Wrapper>
     </>
   );
 };

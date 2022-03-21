@@ -1,11 +1,17 @@
 import { createGlobalStyle } from 'styled-components';
 import { themes } from './themes';
+import { typography } from './tokens';
 
 const GlobalStyles = createGlobalStyle`
   *,
   *::before,
   *::after {
     box-sizing: border-box;
+  }
+
+  :root {
+    --text-size-items: ${typography[14]};
+    --text-size-page: ${typography[16]};
   }
 
   html,

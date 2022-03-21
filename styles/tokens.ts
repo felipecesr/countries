@@ -9,3 +9,8 @@ export const spacing = {
   56: "3.5rem",
   64: "4rem",
 } as const;
+
+export const typography = {
+  14: "0.875rem",
+  16: "1rem"
+} as const;

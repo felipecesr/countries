@@ -9,6 +9,6 @@ export const Wrapper = styled.button<ButtonProps>`
     display: flex;
     align-items: center;
     gap: 0.6rem;
-    font-size: 0.6rem;
+    font-size: var(--text-size-items);
     padding: 0.6rem 1.5rem;
 `
