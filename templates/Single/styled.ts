@@ -13,18 +13,18 @@ export const Wrapper = styled.main`
 `
 
 export const Image = styled.img`
-    margin-top: ${spacing[64]};
+  margin-top: ${spacing[64]};
 `
 
 export const Title = styled.h2`
-    color: var(--color-text);
-    font-size: 1.375;
-    font-weight: 800;
-    margin-top: ${spacing[40]};
+  color: var(--color-text);
+  font-size: 1.375;
+  font-weight: 800;
+  margin-top: ${spacing[40]};
 `
 
 export const List = styled.ul`
-    color: var(--color-text);
-    font-size: var(--text-size-items);
-    margin-bottom: ${spacing[40]};
+  color: var(--color-text);
+  font-size: var(--text-size-items);
+  margin-bottom: ${spacing[40]};
 `

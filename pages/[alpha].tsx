@@ -25,7 +25,6 @@ const Single = ({ country }: SingleProps) => {
         Back
       </Button>
       <S.Wrapper>
-        {/* eslint-disable-next-line @next/next/no-img-element */}
         <S.Image src={country.flag} alt={country.name} />
         <div>
           <S.Title>{country.name}</S.Title>
@@ -62,22 +61,6 @@ const Single = ({ country }: SingleProps) => {
               {country.languages.map((l) => l.name).join(", ")}
             </li>
           </S.List>
-          {/* {!!country?.borders && (
-            <footer>
-              <nav>
-                <h3>Border Countries:</h3>
-                <ul>
-                  {country.borders.map((b) => (
-                    <li key={b}>
-                      <Link href={`/${b.toLowerCase()}`} passHref>
-                        <a>{b}</a>
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </nav>
-            </footer>
-          )} */}
         </div>
       </S.Wrapper>
     </>
