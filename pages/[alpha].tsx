@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { GetStaticPaths, GetStaticProps } from "next";
 import { useRouter } from "next/router";
 import { ArrowLeft } from "styled-icons/fa-solid";
