@@ -4,6 +4,7 @@ import { ArrowLeft } from "styled-icons/fa-solid";
 import { Country } from "../types";
 import { getAllCountries, getCountryByAlphaCode } from "../lib/api";
 import Button from "../components/Button";
+import Heading from "components/Heading";
 import * as S from "../templates/Single/styled";
 
 export type SingleProps = {
@@ -26,8 +27,8 @@ const Single = ({ country }: SingleProps) => {
       <S.Wrapper>
         <S.Image src={country.flag} alt={country.name} />
         <div>
-          <S.Title>{country.name}</S.Title>
-          <S.List>
+          <Heading>{country.name}</Heading>
+          <ul>
             <li>
               <strong>Native Name:</strong> {country.nativeName}
             </li>
@@ -43,8 +44,8 @@ const Single = ({ country }: SingleProps) => {
             <li>
               <strong>Capital:</strong> {country.capital}
             </li>
-          </S.List>
-          <S.List>
+          </ul>
+          <ul>
             <li>
               <strong>Top Level Domain:</strong>{" "}
               {country.topLevelDomain.join(", ")}
@@ -59,7 +60,7 @@ const Single = ({ country }: SingleProps) => {
               <strong>Languages:</strong>{" "}
               {country.languages.map((l) => l.name).join(", ")}
             </li>
-          </S.List>
+          </ul>
         </div>
       </S.Wrapper>
     </>

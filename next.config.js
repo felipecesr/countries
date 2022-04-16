@@ -1,6 +1,13 @@
-module.exports = {
-  basePath: '/countries',
+const isProd = process.env.NODE_ENV === 'production'
+
+/**
+ * @type {import('next').NextConfig}
+ */
+const nextConfig = {
+  basePath: isProd ? "/countries" : "",
   compiler: {
-    styledComponents: true
-  }
+    styledComponents: true,
+  },
 };
+
+module.exports = nextConfig;

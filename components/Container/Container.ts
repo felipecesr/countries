@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import media from 'styled-media-query';
 
-export const LayoutWrapper = styled.main`
+const Container = styled.main`
   padding: 1.714rem 1rem;
 
   ${media.greaterThan('medium')`
@@ -9,3 +9,5 @@ export const LayoutWrapper = styled.main`
     margin: 0 auto;
   `}
 `;
+
+export default Container
