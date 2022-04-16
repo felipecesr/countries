@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { GetStaticProps } from "next";
-import { getAllCountries } from "../lib/api";
-import List from "../components/List";
-import { Country } from "../types";
-import * as S from "../templates/Home/styled";
+import { getAllCountries } from "lib/api";
+import Panel from "components/Panel";
+import { Country } from "types";
+import * as S from "templates/Home/styled";
 
 type IndexProps = {
   countries: Country[];
@@ -35,7 +35,21 @@ const Index = ({ countries }: IndexProps) => {
         <S.MenuSearch value={searchTerm} setSearchTerm={setSearchTerm} />
         <S.MenuDropdown onSelect={handleSelect} />
       </S.MenuWrapper>
-      <List countries={searchResults} />
+      <S.ListWrapper>
+        {searchResults.map(
+          ({ alpha3Code, flag, name, population, region, capital }) => (
+            <Panel
+              key={alpha3Code}
+              alpha3Code={alpha3Code}
+              flag={flag}
+              name={name}
+              population={population}
+              region={region}
+              capital={capital}
+            />
+          )
+        )}
+      </S.ListWrapper>
     </main>
   );
 };
