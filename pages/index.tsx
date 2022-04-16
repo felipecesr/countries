@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { GetStaticProps } from "next";
 import { getAllCountries } from "../lib/api";
 import List from "../components/List";
@@ -10,12 +10,8 @@ type IndexProps = {
 };
 
 const Index = ({ countries }: IndexProps) => {
-  const [searchTerm, setSearchTerm] = useState("");
+  const [searchTerm, setSearchTerm] = useState<string>("");
   const [searchResults, setSearchResults] = useState<Country[]>([]);
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setSearchTerm(e.target.value);
-  };
 
   useEffect(() => {
     const results = countries.filter((country) =>
@@ -36,7 +32,7 @@ const Index = ({ countries }: IndexProps) => {
   return (
     <main>
       <S.MenuWrapper>
-        <S.MenuSearch value={searchTerm} onChange={handleChange} />
+        <S.MenuSearch value={searchTerm} setSearchTerm={setSearchTerm} />
         <S.MenuDropdown onSelect={handleSelect} />
       </S.MenuWrapper>
       <List countries={searchResults} />

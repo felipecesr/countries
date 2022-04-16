@@ -23,6 +23,7 @@ const Panel = ({
     <Link href={`/${alpha3Code.toLowerCase()}`}>
       <a>
         <S.PanelHead>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src={flag} loading="lazy" alt={name} />
         </S.PanelHead>
         <S.PanelContent>

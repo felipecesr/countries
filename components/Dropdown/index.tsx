@@ -5,7 +5,7 @@ type Props = {
   className?: string;
   activatorText?: string;
   items: string[];
-  onSelect: (e: React.MouseEvent) => void;
+  onSelect: (e: React.MouseEvent<HTMLButtonElement>) => void;
 };
 
 const Dropdown = ({ className, activatorText, items, onSelect }: Props) => {

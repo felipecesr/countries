@@ -80,7 +80,7 @@ export const getStaticProps: GetStaticProps = async ({ params }: Params) => {
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const countries = await getAllCountries(["alpha3Code"]);
+  const countries: Country[] = await getAllCountries(["alpha3Code"]);
   return {
     paths: countries.map((c) => ({
       params: { alpha: c.alpha3Code.toLowerCase() },

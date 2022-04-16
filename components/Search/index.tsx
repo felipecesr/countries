@@ -1,13 +1,13 @@
 import React from 'react';
 import * as S from './styled';
 
-type Props = {
+export type SearchProps = {
   className?: string;
   value: string;
-  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  setSearchTerm(value: string): void;
 };
 
-const Search = ({ className, value, onChange }: Props) => (
+const Search = ({ className, value, setSearchTerm }: SearchProps) => (
   <S.SearchWrapper className={className}>
     <S.SearchIcon />
     <S.SearchInput
@@ -15,7 +15,7 @@ const Search = ({ className, value, onChange }: Props) => (
       name="search"
       placeholder="Search for a country..."
       value={value}
-      onChange={onChange}
+      onChange={e => setSearchTerm(e.target.value)}
     />
   </S.SearchWrapper>
 );
