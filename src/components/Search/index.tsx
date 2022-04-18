@@ -1,5 +1,5 @@
-import React from 'react';
-import * as S from './styled';
+import React from "react";
+import * as S from "./styled";
 
 export type SearchProps = {
   className?: string;
@@ -15,7 +15,7 @@ const Search = ({ className, value, setSearchTerm }: SearchProps) => (
       name="search"
       placeholder="Search for a country..."
       value={value}
-      onChange={e => setSearchTerm(e.target.value)}
+      onChange={(e) => setSearchTerm(e.target.value)}
     />
   </S.SearchWrapper>
 );

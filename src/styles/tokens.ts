@@ -12,5 +12,5 @@ export const spacing = {
 
 export const typography = {
   14: "0.875rem",
-  16: "1rem"
+  16: "1rem",
 } as const;

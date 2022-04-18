@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from "styled-components";
 
 const Button = styled.button`
   background-color: var(--color-elements);
@@ -9,6 +9,6 @@ const Button = styled.button`
   align-items: center;
   gap: 0.6rem;
   padding: 0.6rem 1.5rem;
-`
+`;
 
-export default Button
+export default Button;

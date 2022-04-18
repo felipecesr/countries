@@ -1,6 +1,6 @@
-import React from 'react';
-import Link from 'next/link';
-import * as S from './styled';
+import React from "react";
+import Link from "next/link";
+import * as S from "./styled";
 
 type Props = {
   alpha3Code: string;

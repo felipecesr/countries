@@ -1,9 +1,9 @@
-import React from 'react';
-import Link from 'next/link';
-import * as S from './styled';
-import { useDarkMode } from 'hooks/useDarkMode';
+import React from "react";
+import Link from "next/link";
+import * as S from "./styled";
+import { useDarkMode } from "hooks/useDarkMode";
 
-import Toggle from './Toggle';
+import Toggle from "./Toggle";
 
 const PageHeader = () => {
   const [theme, themeToggler] = useDarkMode();

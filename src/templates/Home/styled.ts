@@ -1,12 +1,12 @@
-import styled from 'styled-components';
-import media from 'styled-media-query';
-import { spacing } from 'styles/tokens';
+import styled from "styled-components";
+import media from "styled-media-query";
+import { spacing } from "styles/tokens";
 
-import Search from 'components/Search';
-import Dropdown from 'components/Dropdown';
+import Search from "components/Search";
+import Dropdown from "components/Dropdown";
 
 export const MenuWrapper = styled.div`
-  ${media.greaterThan('medium')`
+  ${media.greaterThan("medium")`
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -17,7 +17,7 @@ export const MenuWrapper = styled.div`
 export const MenuSearch = styled(Search)`
   margin-bottom: ${spacing[40]};
 
-  ${media.greaterThan('medium')`
+  ${media.greaterThan("medium")`
     margin-bottom: 0;
   `}
 `;
@@ -25,7 +25,7 @@ export const MenuSearch = styled(Search)`
 export const MenuDropdown = styled(Dropdown)`
   margin-bottom: ${spacing[32]};
 
-  ${media.greaterThan('medium')`
+  ${media.greaterThan("medium")`
     margin-bottom: 0;
   `}
 `;

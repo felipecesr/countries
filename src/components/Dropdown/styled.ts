@@ -1,5 +1,5 @@
-import styled from 'styled-components';
-import { AngleDown } from 'styled-icons/fa-solid';
+import styled from "styled-components";
+import { AngleDown } from "styled-icons/fa-solid";
 
 export const DropdownWrapper = styled.div`
   position: relative;
@@ -33,7 +33,7 @@ interface DropdownMenuProps {
 }
 
 export const DropdownMenu = styled.ul<DropdownMenuProps>`
-  display: ${({ isOpen }) => (isOpen ? 'block' : 'none')};
+  display: ${({ isOpen }) => (isOpen ? "block" : "none")};
   background-color: var(--color-elements);
   border-radius: 5px;
   list-style: none;

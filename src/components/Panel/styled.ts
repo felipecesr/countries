@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const PanelWrapper = styled.li`
   background-color: var(--color-elements);

@@ -1,5 +1,5 @@
-import styled from 'styled-components';
-import { Search } from 'styled-icons/fa-solid';
+import styled from "styled-components";
+import { Search } from "styled-icons/fa-solid";
 
 export const SearchWrapper = styled.div`
   position: relative;

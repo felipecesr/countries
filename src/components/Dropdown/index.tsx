@@ -1,5 +1,5 @@
-import React, { useState, useRef, useEffect } from 'react';
-import * as S from './styled';
+import React, { useState, useRef, useEffect } from "react";
+import * as S from "./styled";
 
 type Props = {
   className?: string;
@@ -37,11 +37,11 @@ const Dropdown = ({ className, activatorText, items, onSelect }: Props) => {
 
   useEffect(() => {
     if (isOpen) {
-      const el = dropdownListRef.current?.querySelector('a');
+      const el = dropdownListRef.current?.querySelector("a");
       el && el.focus();
-      document.addEventListener('mousedown', handleClickOutside as any);
+      document.addEventListener("mousedown", handleClickOutside as any);
     } else {
-      document.removeEventListener('mousedown', handleClickOutside as any);
+      document.removeEventListener("mousedown", handleClickOutside as any);
     }
   }, [isOpen]);
 
@@ -81,8 +81,8 @@ const Dropdown = ({ className, activatorText, items, onSelect }: Props) => {
 };
 
 Dropdown.defaultProps = {
-  activatorText: 'Filter by Region',
-  items: ['Africa', 'Americas', 'Asia', 'Europe', 'Oceania'],
+  activatorText: "Filter by Region",
+  items: ["Africa", "Americas", "Asia", "Europe", "Oceania"],
 };
 
 export default Dropdown;

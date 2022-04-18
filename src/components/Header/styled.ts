@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const PageHeaderWrapper = styled.header`
   align-items: center;
