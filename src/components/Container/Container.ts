@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import media from 'styled-media-query';
 
-const Container = styled.main`
+const Container = styled.div`
   padding: 1.714rem 1rem;
 
   ${media.greaterThan('medium')`
