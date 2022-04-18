@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
+import { useDarkMode } from "./useDarkMode";
 import * as S from "./styled";
-import { useDarkMode } from "hooks/useDarkMode";
 
 import Toggle from "./Toggle";
 
