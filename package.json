@@ -6,9 +6,12 @@
     "dev": "next dev",
     "build": "next build && next export",
     "start": "next start",
+    "analyze": "ANALYZE=true next build",
     "lint": "next lint",
-    "format": "prettier --ignore-path .gitignore --write \"**/*.+(js|ts|tsx)\"",
-    "analyze": "ANALYZE=true next build"
+    "prettier": "prettier --ignore-path .gitignore \"**/*.+(js|ts|tsx)\"",
+    "format": "yarn prettier --write",
+    "check-format": "yarn prettier --list-different",
+    "validate": "yarn check-format && yarn lint && yarn build"
   },
   "dependencies": {
     "next": "^12.1.0",
