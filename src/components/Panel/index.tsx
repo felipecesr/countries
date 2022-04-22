@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import Heading from "components/Heading";
 import ListItem from "components/ListItem";
 import * as S from "./styled";
 
@@ -28,7 +29,7 @@ const Panel = ({
           <img src={flag} loading="lazy" alt={name} />
         </S.PanelHead>
         <S.PanelContent>
-          <h3>{name}</h3>
+          <Heading as="h3">{name}</Heading>
           <dl>
             <ListItem term="Population" definition={population} />
             <ListItem term="Region" definition={region} />
