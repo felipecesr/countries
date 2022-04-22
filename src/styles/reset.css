@@ -23,8 +23,3 @@ body {
   background-color: var(--color-background);
   color: var(--color-text);
 }
-
-ol,
-ul {
-  list-style: none;
-}

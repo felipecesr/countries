@@ -5,6 +5,7 @@ import { Country } from "../types";
 import { getAllCountries, getCountryByAlphaCode } from "../lib/api";
 import Button from "../components/Button";
 import Heading from "components/Heading";
+import ListItem from "components/ListItem";
 import * as S from "../templates/Single/styled";
 
 export type SingleProps = {
@@ -28,39 +29,29 @@ const Single = ({ country }: SingleProps) => {
         <S.Image src={country.flag} alt={country.name} />
         <div>
           <Heading>{country.name}</Heading>
-          <ul>
-            <li>
-              <strong>Native Name:</strong> {country.nativeName}
-            </li>
-            <li>
-              <strong>Population:</strong> {country.population}
-            </li>
-            <li>
-              <strong>Region:</strong> {country.region}
-            </li>
-            <li>
-              <strong>Sub Region:</strong> {country.subregion}
-            </li>
-            <li>
-              <strong>Capital:</strong> {country.capital}
-            </li>
-          </ul>
-          <ul>
-            <li>
-              <strong>Top Level Domain:</strong>{" "}
-              {country.topLevelDomain.join(", ")}
-            </li>
+          <dl>
+            <ListItem term="Native Name" definition={country.nativeName} />
+            <ListItem term="Population" definition={country.population} />
+            <ListItem term="Region" definition={country.region} />
+            <ListItem term="Sub Region" definition={country.subregion} />
+            <ListItem term="Capital" definition={country.capital} />
+          </dl>
+          <dl>
+            <ListItem
+              term="Top Level Domain"
+              definition={country.topLevelDomain.join(", ")}
+            />
             {!!country?.currencies && (
-              <li>
-                <strong>Currencies:</strong>{" "}
-                {country.currencies.map((c) => c.name).join(", ")}
-              </li>
+              <ListItem
+                term="Currencies"
+                definition={country.currencies.map((c) => c.name).join(", ")}
+              />
             )}
-            <li>
-              <strong>Languages:</strong>{" "}
-              {country.languages.map((l) => l.name).join(", ")}
-            </li>
-          </ul>
+            <ListItem
+              term="Languages"
+              definition={country.languages.map((l) => l.name).join(", ")}
+            />
+          </dl>
         </div>
       </S.Wrapper>
     </>

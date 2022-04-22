@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import ListItem from "components/ListItem";
 import * as S from "./styled";
 
 type Props = {
@@ -27,18 +28,12 @@ const Panel = ({
           <img src={flag} loading="lazy" alt={name} />
         </S.PanelHead>
         <S.PanelContent>
-          <p>{name}</p>
-          <ul>
-            <li>
-              <strong>Population:</strong> {population}
-            </li>
-            <li>
-              <strong>Region:</strong> {region}
-            </li>
-            <li>
-              <strong>Capital:</strong> {capital}
-            </li>
-          </ul>
+          <h3>{name}</h3>
+          <dl>
+            <ListItem term="Population" definition={population} />
+            <ListItem term="Region" definition={region} />
+            <ListItem term="Capital" definition={capital} />
+          </dl>
         </S.PanelContent>
       </a>
     </Link>
