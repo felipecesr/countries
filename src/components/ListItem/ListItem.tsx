@@ -1,10 +1,10 @@
 import * as S from "./styles";
 
 const ListItem = ({ term, definition }) => (
-  <div>
+  <S.Wrapper>
     <S.Term>{term}</S.Term>
     <S.Definition>{definition}</S.Definition>
-  </div>
+  </S.Wrapper>
 );
 
 export default ListItem;

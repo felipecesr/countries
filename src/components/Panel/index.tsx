@@ -24,17 +24,14 @@ const Panel = ({
   <S.PanelWrapper>
     <Link href={`/${alpha3Code.toLowerCase()}`}>
       <a>
-        <S.PanelHead>
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src={flag} loading="lazy" alt={name} />
-        </S.PanelHead>
+        <S.Flag src={flag} loading="lazy" alt={`${name}'s flag`} />
         <S.PanelContent>
           <Heading as="h3">{name}</Heading>
-          <dl>
+          <S.List>
             <ListItem term="Population" definition={population} />
             <ListItem term="Region" definition={region} />
             <ListItem term="Capital" definition={capital} />
-          </dl>
+          </S.List>
         </S.PanelContent>
       </a>
     </Link>

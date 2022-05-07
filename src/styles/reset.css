@@ -9,6 +9,7 @@ html,
 body,
 ul,
 ol,
+dl,
 figure,
 p {
   margin: 0;
@@ -22,4 +23,17 @@ html, body, div, input, button, select, option, p, text {
 body {
   background-color: var(--color-background);
   color: var(--color-text);
+}
+
+h2,
+h3 {
+  margin: 0;
+}
+
+h2 {
+  font-size: 1.375rem;
+}
+
+h3 {
+  font-size: 1.125rem;
 }
