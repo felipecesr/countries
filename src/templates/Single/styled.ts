@@ -1,17 +1,17 @@
 import styled from "styled-components";
-import media from "styled-media-query";
-import { spacing } from "styles/tokens";
 
 export const Wrapper = styled.main`
-  ${media.greaterThan("medium")`
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    /* gap: 140px */
-    gap: 8.75rem;
-    align-items: center;
-  `}
+  display: flex;
+  gap: 0 140px;
+  flex-wrap: wrap;
+  align-items: center;
+`;
+
+export const Column = styled.div`
+  flex: 1;
 `;
 
 export const Image = styled.img`
-  margin-top: ${spacing[64]};
+  width: 100%;
+  min-width: 300px;
 `;

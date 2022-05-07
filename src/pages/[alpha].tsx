@@ -26,8 +26,10 @@ const Single = ({ country }: SingleProps) => {
         Back
       </Button>
       <S.Wrapper>
-        <S.Image src={country.flag} alt={country.name} />
-        <div>
+        <S.Column>
+          <S.Image src={country.flag} alt={country.name} />
+        </S.Column>
+        <S.Column>
           <Heading>{country.name}</Heading>
           <dl>
             <ListItem term="Native Name" definition={country.nativeName} />
@@ -52,7 +54,7 @@ const Single = ({ country }: SingleProps) => {
               definition={country.languages.map((l) => l.name).join(", ")}
             />
           </dl>
-        </div>
+        </S.Column>
       </S.Wrapper>
     </>
   );
