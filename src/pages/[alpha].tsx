@@ -1,12 +1,13 @@
 import { GetStaticPaths, GetStaticProps } from "next";
 import { useRouter } from "next/router";
+import styled from "styled-components";
 import { ArrowLeft } from "styled-icons/fa-solid";
-import { Country } from "../types";
-import { getAllCountries, getCountryByAlphaCode } from "../lib/api";
-import Button from "../components/Button";
+import { Country } from "types";
+import { getAllCountries, getCountryByAlphaCode } from "lib/api";
+import Button from "components/Button";
 import Heading from "components/Heading";
 import ListItem from "components/ListItem";
-import * as S from "../templates/Single/styled";
+import media from "styled-media-query";
 
 export type SingleProps = {
   country: Country;
@@ -21,15 +22,17 @@ const Single = ({ country }: SingleProps) => {
 
   return (
     <>
-      <Button onClick={() => router.back()}>
-        <ArrowLeft height={14} />
-        Back
-      </Button>
-      <S.Wrapper>
-        <S.Column>
-          <S.Image src={country.flag} alt={country.name} />
-        </S.Column>
-        <S.Column>
+      <ButtonWrapper>
+        <Button onClick={() => router.back()}>
+          <ArrowLeft height={14} />
+          Back
+        </Button>
+      </ButtonWrapper>
+      <Wrapper>
+        <Column>
+          <Image src={country.flag} alt={country.name} />
+        </Column>
+        <Column>
           <Heading>{country.name}</Heading>
           <dl>
             <ListItem term="Native Name" definition={country.nativeName} />
@@ -54,11 +57,38 @@ const Single = ({ country }: SingleProps) => {
               definition={country.languages.map((l) => l.name).join(", ")}
             />
           </dl>
-        </S.Column>
-      </S.Wrapper>
+        </Column>
+      </Wrapper>
     </>
   );
 };
+
+export const ButtonWrapper = styled.div`
+  padding: 40px 0 64px;
+
+  ${media.greaterThan("medium")`
+    padding: 80px 0;
+  `}
+`;
+
+export const Wrapper = styled.main`
+  display: flex;
+  gap: 44px 140px;
+  flex-wrap: wrap;
+  align-items: center;
+`;
+
+export const Column = styled.div`
+  flex: 1;
+`;
+
+export const Image = styled.img`
+  display: block;
+  width: 100%;
+  height: 400px;
+  min-width: 560px;
+  object-fit: cover;
+`;
 
 export default Single;
 

@@ -1,9 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { GetStaticProps } from "next";
+import styled from "styled-components";
+import media from "styled-media-query";
+import { spacing } from "styles/tokens";
+import { Country } from "types";
 import { getAllCountries } from "lib/api";
 import Panel from "components/Panel";
-import { Country } from "types";
-import * as S from "templates/Home/styled";
+import Search from "components/Search";
+import Dropdown from "components/Dropdown";
 
 type IndexProps = {
   countries: Country[];
@@ -31,11 +35,11 @@ const Index = ({ countries }: IndexProps) => {
 
   return (
     <main>
-      <S.MenuWrapper>
-        <S.MenuSearch value={searchTerm} setSearchTerm={setSearchTerm} />
-        <S.MenuDropdown onSelect={handleSelect} />
-      </S.MenuWrapper>
-      <S.ListWrapper>
+      <MenuWrapper>
+        <Search value={searchTerm} setSearchTerm={setSearchTerm} />
+        <Dropdown onSelect={handleSelect} />
+      </MenuWrapper>
+      <ListWrapper>
         {searchResults.map(
           ({ alpha3Code, flag, name, population, region, capital }) => (
             <Panel
@@ -49,10 +53,34 @@ const Index = ({ countries }: IndexProps) => {
             />
           )
         )}
-      </S.ListWrapper>
+      </ListWrapper>
     </main>
   );
 };
+
+export const MenuWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: ${spacing[40]};
+  padding: ${spacing[24]} 0 ${spacing[32]};
+
+  ${media.greaterThan("medium")`
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: ${spacing[40]} 0;
+  `}
+`;
+
+export const ListWrapper = styled.ul`
+  --min-column-width: min(264px, 100%);
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fill,
+    minmax(var(--min-column-width), 1fr)
+  );
+  gap: 74px;
+`;
 
 export default Index;
 

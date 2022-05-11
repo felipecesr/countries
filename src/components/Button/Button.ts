@@ -5,6 +5,7 @@ const Button = styled.button`
   border: 0;
   border-radius: 5px;
   color: var(--color-text);
+  cursor: pointer;
   display: flex;
   align-items: center;
   gap: 0.6rem;
