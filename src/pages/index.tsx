@@ -79,7 +79,7 @@ export const ListWrapper = styled.ul`
     auto-fill,
     minmax(var(--min-column-width), 1fr)
   );
-  gap: 74px;
+  gap: 74px clamp(56px, 10vw - 4.5rem, 74px);
 `;
 
 export default Index;
