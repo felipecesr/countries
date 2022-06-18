@@ -11,8 +11,8 @@ const PageHeader = () => {
   return (
     <S.PageHeaderWrapper>
       <S.PageHeaderTitle>
-        <Link href="/">
-          <a>Where in the world?</a>
+        <Link href="/" passHref>
+          <S.Logo>Where in the world?</S.Logo>
         </Link>
       </S.PageHeaderTitle>
       <Toggle theme={theme} toggleTheme={themeToggler} />

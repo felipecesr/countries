@@ -17,3 +17,8 @@ export const PageHeaderTitle = styled.h1`
   line-height: 1.6;
   margin: 0;
 `;
+
+export const Logo = styled.a`
+  color: inherit;
+  text-decoration: none;
+`;
