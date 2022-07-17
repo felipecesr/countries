@@ -18,7 +18,7 @@ const Dropdown = ({ className, activatorText, items, onSelect }: Props) => {
   };
 
   const handleKey = (e: React.KeyboardEvent) => {
-    if (e.keyCode === 27 && isOpen) {
+    if (e.key === "Escape" && isOpen) {
       setIsOpen(false);
       activatorRef.current?.focus();
     }
