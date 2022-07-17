@@ -1,17 +1,20 @@
 import styled from "styled-components";
 
 export const ButtonThemeWrapper = styled.button`
+  align-items: center;
   background: none;
   border: none;
   color: var(--toggle-theme-color);
-  padding: 0;
+  cursor: pointer;
+  display: inline-flex;
   font-size: 0.9rem;
   font-weight: 600;
+  gap: 8px;
+  padding: 0;
 `;
 
 export const ButtonThemeIcon = styled.svg`
-  display: inline-block;
-  margin-right: 8px;
-  height: 12px;
-  width: 12px;
+  --icon-size: 12px;
+  height: var(--icon-size);
+  width: var(--icon-size);
 `;

@@ -1,23 +1,17 @@
 import React from "react";
 import Link from "next/link";
-import { useDarkMode } from "./useDarkMode";
 import * as S from "./styled";
+import ToggleTheme from "./ToggleTheme";
 
-import Toggle from "./Toggle";
-
-const PageHeader = () => {
-  const [theme, themeToggler] = useDarkMode();
-
-  return (
-    <S.PageHeaderWrapper>
-      <S.PageHeaderTitle>
-        <Link href="/" passHref>
-          <S.Logo>Where in the world?</S.Logo>
-        </Link>
-      </S.PageHeaderTitle>
-      <Toggle theme={theme} toggleTheme={themeToggler} />
-    </S.PageHeaderWrapper>
-  );
-};
+const PageHeader = () => (
+  <S.PageHeaderWrapper>
+    <S.PageHeaderTitle>
+      <Link href="/" passHref>
+        <S.Logo>Where in the world?</S.Logo>
+      </Link>
+    </S.PageHeaderTitle>
+    <ToggleTheme />
+  </S.PageHeaderWrapper>
+);
 
 export default PageHeader;
