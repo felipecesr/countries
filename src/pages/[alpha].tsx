@@ -1,5 +1,6 @@
 import { GetStaticPaths, GetStaticProps } from "next";
 import { useRouter } from "next/router";
+import Link from "next/link";
 import styled from "styled-components";
 import { ArrowLeft } from "styled-icons/fa-solid";
 import { Country } from "types";
@@ -23,10 +24,12 @@ const Single = ({ country }: SingleProps) => {
   return (
     <>
       <ButtonWrapper>
-        <Button onClick={() => router.back()}>
-          <ArrowLeft height={14} />
-          Back
-        </Button>
+        <Link href="/" passHref>
+          <Button as="a">
+            <ArrowLeft height={14} />
+            Back
+          </Button>
+        </Link>
       </ButtonWrapper>
       <Wrapper>
         <Column>

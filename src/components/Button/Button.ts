@@ -6,10 +6,11 @@ const Button = styled.button`
   border-radius: 5px;
   color: var(--color-text);
   cursor: pointer;
-  display: flex;
+  display: inline-flex;
   align-items: center;
   gap: 0.6rem;
   padding: 0.6rem 1.5rem;
+  text-decoration: none;
 `;
 
 export default Button;
